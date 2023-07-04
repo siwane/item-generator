@@ -25,8 +25,6 @@ class QuizGenerator implements QuizGeneratorInterface
 
         $time_start = microtime(true);
 
-        echo $question_csv;
-
         $response = $this->gpt3->ask($question_csv);
 
         $time_end = microtime(true);
