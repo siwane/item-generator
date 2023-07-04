@@ -1,0 +1,7 @@
+.env
+vendor
+.phpunit.result.cache
+.idea
+.DS_Store
+package/zip
+package/tmp
