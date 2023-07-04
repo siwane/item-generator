@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Topic and Difficulty Form{% endblock %}
+
+{% block styles %}<link rel="stylesheet" type="text/css" href="css/form.css">{% endblock %}
+
+{% block body %}
+    <form action="/quiz" method="GET" class="form-container">
+        <img src="https://pbs.twimg.com/profile_images/1231988997595025409/B3V6gz1k_400x400.jpg" class="logo" />
+        <label for="topic">Topic:</label>
+        <input type="text" id="topic" name="topic" required><br><br>
+
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" name="difficulty" required>
+            <option value="">Select Difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if message is not empty %}
+        <br/>
+        <div class="alert alert-info">
+            {{ message }}
+        </div>
+    {% endif %}
+
+{% endblock %}

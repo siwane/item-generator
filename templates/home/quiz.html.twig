@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ topic }} Form{% endblock %}
+
+{% block styles %}<link rel="stylesheet" type="text/css" href="css/preview.css">{% endblock %}
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            let quizData = JSON.parse("{{quizData | json_encode() | escape('js')}}");
+
+            $(".publish").click(function(e) {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                if ($(this).hasClass('loading')) {
+                    return;
+                }
+
+                let id = this.id;
+                console.log(id);
+
+                $(this).addClass('loading');
+
+                $.ajax({
+                    url: '/publish', // The URL to request
+                    method: 'POST', // The HTTP method to use
+                    data: {
+                        'quiz': quizData[id],
+                        'topic': '{{ topic }}',
+                        'difficulty': '{{ difficulty }}'
+                    },
+                    success: function(data) {
+                        // Handle the response data
+                        $('#' + id).removeClass('loading');
+                        $('#' + id).replaceWith('<a href="' + data + '" target="_blank" class="btn-success-form">Go to item</a>');
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle any errors that occurred
+                        console.error(error);
+                        $('#' + id).removeClass('loading');
+                    }
+                });
+
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="header">
+    <h1>Multiple Choice Quiz - {{ topic }} - {{ difficulty }}</h1>
+    <a href="index.php">Go back</a>
+</div>
+
+<div id="quiz-container">
+    <form action="/validate?topic={{ topic }}&difficulty={{ difficulty }}" method="post" class="main-form">
+        {% for questionKey, questionData in quizData %}
+            <div class="form-group">
+                {% set id = 'q-' ~ questionKey %}
+
+                <h2 class="question"><label for="{{ id }}">{{ questionData.Question }}</label></h2>
+
+                {% if submittedData is defined %}
+                    <button id="{{ questionKey }}" class="btn-info-form publish" >Publish</button>
+                    {% if submittedData[id] is defined %}
+                        {%  if submittedData[id] == questionData['Correct Identifier'] %}
+                            <p style="color:green;">Good response!</p>
+                        {% else %}
+                            <p style="color:red;">Bad response! Correct answer is: {{ questionData['Correct Identifier'] }}</p>
+                        {% endif %}
+                    {% else %}
+                        <p><b>Correct answer is: {{ questionData['Correct Identifier'] }}</b></p>
+                    {% endif %}
+                {% endif %}
+
+                {% set choices = ['A', 'B', 'C', 'D'] %}
+                {% for choice in choices %}
+                    <p>
+                        <input type="radio" name="{{ id }}" value="{{ choice }}"
+                           {% if submittedData[id] is defined and submittedData[id] == choice %}checked{% endif %}
+                           />
+                        {{ questionData[choice] }}
+                    </p>
+                {% endfor %}
+
+            </div>
+        {% endfor %}
+
+        {% if submittedData is not defined %}
+            <input type="hidden" name="quizData" value="{{ quizData|json_encode }}">
+            <button type="submit" class="btn-main-form">Submit</button>
+        {% endif %}
+        <br/>
+        <a href="index.php">Go back</a>
+
+    </form>
+
+</div>
+
+{% endblock %}

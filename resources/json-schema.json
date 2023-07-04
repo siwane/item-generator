@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "array",
+    "properties": {
+      "Question": {
+        "type": "string"
+      },
+      "A": {
+        "type": "string"
+      },
+      "B": {
+        "type": "string"
+      },
+      "C": {
+        "type": "string"
+      },
+      "D": {
+        "type": "string"
+      },
+      "Correct Identifier": {
+        "type": "string",
+        "enum": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      }
+    },
+    "required": [
+      "Question",
+      "A",
+      "B",
+      "C",
+      "D",
+      "Correct Identifier"
+    ]
+  }
+}

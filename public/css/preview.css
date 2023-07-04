@@ -1,0 +1,98 @@
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F7F7F7;
+    color: #333;
+}
+
+/* Header styles */
+.header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Form styles */
+.main-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.btn-main-form {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #E74C3C;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-secondary-form {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    float:right;
+    border: none;
+    border-radius: 5px;
+    background-color: #3da848;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-info-form {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    float:right;
+    border: none;
+    border-radius: 5px;
+    background-color: #3d7fa8;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-success-form {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    float:right;
+    border: none;
+    border-radius: 5px;
+    background-color: #3da846;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.link-item {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    float:right;
+}
+
+button.loading {
+    background-color: gray;
+    cursor: progress;
+}
