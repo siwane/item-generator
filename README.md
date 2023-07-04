@@ -4,6 +4,10 @@
 
 The TAO-QuestionGenerator is an open-source project that leverages the power of ChatGPT, a state-of-the-art language model, to generate a set of questions based on a specified topic and difficulty level. The generated questions can be seamlessly published to any TAO platform, providing educators and content creators with an efficient solution for computer-based assessments.
 
+## Discover
+
+https://github.com/siwane/item-generator/assets/8009602/23494d6d-c07d-4005-a8ac-d652612afd5a
+
 ## Key Features:
 
 - **Dynamic Question Generation**: The project utilizes ChatGPT's natural language processing capabilities to dynamically generate multiple-choice questions.
