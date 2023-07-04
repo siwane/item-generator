@@ -3,5 +3,5 @@ vendor
 .phpunit.result.cache
 .idea
 .DS_Store
-package/zip
-package/tmp
+package/zip/zip*
+package/tmp/
