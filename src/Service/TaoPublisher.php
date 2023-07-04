@@ -26,12 +26,13 @@ class TaoPublisher implements TaoPublisherInterface
 
     public function publishPackage(string $filePath): string
     {
-        $client = new Client();
+        $client = new Client(['verify' => false]);
 
         $boundary = uniqid();
         $headers = [
             'Authorization' => 'Basic ' . base64_encode($this->user . ':' . $this->password),
             'Content-Type' => 'multipart/form-data; boundary=' . $boundary,
+            'Accept' => 'application/json',
         ];
 
         $resource = fopen($filePath, 'r');
