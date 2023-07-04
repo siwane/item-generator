@@ -28,9 +28,6 @@ class TaoPublisher implements TaoPublisherInterface
     {
         $client = new Client();
 
-        $user = 'taoAdmin';
-        $password = '4al=W9u2Nb:5xVHuicNo';
-
         $boundary = uniqid();
         $headers = [
             'Authorization' => 'Basic ' . base64_encode($this->user . ':' . $this->password),
