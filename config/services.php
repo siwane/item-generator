@@ -6,6 +6,7 @@ use App\Controller\PublishController;
 use App\Service\ChatGpt3Crawler;
 use App\Service\QtiItemPackageCreator;
 use App\Service\QuizGenerator;
+use App\Service\QuizGeneratorInterface;
 use App\Service\TaoPublisher;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
@@ -31,7 +32,7 @@ return [
         DI\get('gpt3.key'), DI\get('gpt3.url')
     ),
 
-    QuizGenerator::class => DI\create()->constructor(
+    QuizGeneratorInterface::class => DI\create(QuizGenerator::class)->constructor(
         Di\get(ChatGpt3Crawler::class), $root . '/resources/json-schema.json'
     ),
 

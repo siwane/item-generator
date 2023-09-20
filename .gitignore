@@ -5,3 +5,4 @@ vendor
 .DS_Store
 package/zip/zip*
 package/tmp/
+resources/

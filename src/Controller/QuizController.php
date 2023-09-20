@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Service\QuizGenerator;
+use App\Service\QuizGeneratorInterface;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ class QuizController
     private QuizGenerator $quizGenerator;
     private Environment $twig;
 
-    public function __construct(QuizGenerator $quizGenerator, Environment $twig)
+    public function __construct(QuizGeneratorInterface $quizGenerator, Environment $twig)
     {
         $this->quizGenerator = $quizGenerator;
         $this->twig = $twig;
