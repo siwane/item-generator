@@ -14,7 +14,7 @@ The TAO-QuestionGenerator is an open-source project that leverages the power of 
 
 ## Discover
 
-https://github.com/siwane/item-generator/assets/8009602/23494d6d-c07d-4005-a8ac-d652612afd5a
+https://github.com/siwane/item-generator/assets/8009602/0422c3e9-4db6-4fd5-970d-9660c7ebf4b9
 
 ## How to install
 
